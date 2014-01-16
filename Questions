@@ -1,0 +1,35 @@
+1. Yes, the bug will always move to a new location if it is not surrounded by rocks or if the grid is full fo bugs.
+2. The bug will move forword if the space is clear.
+3. It will spin in circles for ever.
+4. The bug leaves behind a flower ot the color it is.
+5. The bug acts no differently then hitting a rock. The whole edge is like a giant rock on the outside.
+6. It will turn 45 degrees and try to move that way.
+7. No
+8. The flower does not move but it looses it's color after a while.
+9. The rock can not move and has no behavior.
+10. No, a bug can not move onto the space of a rock, but it can move on a flower, getting rid of the flower.
+
+	Exercises
+
+1.	0-North
+	45-North East
+	90-East
+	135-South East
+	180-South
+	225-South West
+	270-West
+	315-North West
+	360-North
+2. You can move your bug anywhere on the gird, even on a rock.
+3. You use the setColor method.
+4. The bug dissapers.
+
+
+	Set 2
+1. sideLength tells the bug how big of a box to create.
+2. steps counts how far the bug has moved.
+3. Because one turn only turns the bug 45 degrees instead of 90.
+4. Because it extendes bug.
+5. Yes, unless the bug runs into something like a wall, bug or rock.
+6. Yes, if it runs into something.
+7. At the very beginning and when it turns. 
