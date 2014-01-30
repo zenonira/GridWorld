@@ -1,3 +1,6 @@
+	Part 1
+
+	Set 1
 1. Yes, the bug will always move to a new location if it is not surrounded by rocks or if the grid is full fo bugs.
 2. The bug will move forword if the space is clear.
 3. It will spin in circles for ever.
@@ -7,10 +10,8 @@
 7. No
 8. The flower does not move but it looses it's color after a while.
 9. The rock can not move and has no behavior.
-10. No, a bug can not move onto the space of a rock, but it can move on a flower, getting rid of the flower.
-
+10. No, a bug can not move onto the space of a rock, but it can move on a flower, getting rid of the flower
 	Exercises
-
 1.	0-North
 	45-North East
 	90-East
@@ -25,6 +26,8 @@
 4. The bug dissapers.
 
 
+	Part 2
+
 	Set 2
 1. sideLength tells the bug how big of a box to create.
 2. steps counts how far the bug has moved.
@@ -33,3 +36,67 @@
 5. Yes, unless the bug runs into something like a wall, bug or rock.
 6. Yes, if it runs into something.
 7. At the very beginning and when it turns. 
+	
+	Part 3
+
+	Set 3
+1. loc1.getRow();
+2. False
+3. (3,5)
+4. 45 degrees
+5. By puting the loc2. before it, the computer knows that you are talking about loc2, not loc1.
+
+	Set 4
+1. Get the number of columbs and rows with getNumRows() and getNumCols(). Then, make a for loop to cycle through each spot on the grid and run IsValid(Location loc).
+2. Use getNumRows() and getNumCols() to see if the point is on the grid.
+3. It doesn't contain declarations because the code is in the interface, which it implements.
+4. It would be better to use the ArrayList because the array would always change length. With the list, you don't need to mannualy chang it every time.
+
+	Set 5
+1. Color, Direction, Location
+2. Facing North and it is it's default color.
+3. So the Rock, Flower and Bug can extend actor.
+4. Yes, No, Yes. It puts itself in, removes itself, and back in.
+5. setDirection(getDirection() + Loction.Half_Right)
+
+	Set 6
+1. If The space infront of the bug is not valid, it will not move. 
+	if (!gr.isValid(next)) 
+ 		return false; 
+2. If there is an actor infront fo the bug it will not move except a flower.
+	Actor neighbor = gr.get(next); 
+		return (neighbor == null) || (neighbor instanceof Flower); 
+3. isValid(Location loc)
+4. getAdjacentLocation(getDirection())
+5. getGrid(), GetLocation()
+6. It turns
+7. You need loc because you need to get the adjacent location and you need to call the exact position of the bug.
+8. getColor takes the color of the bug, which is set to the color of the flower.
+9. Yes
+10. loc takes the location of the bug before it moves, then adds the flower to that positon.
+11. 4 times.
+
+	Part4
+
+	Set 7
+1. act(), getActors(), processActors(ArrayList<Actor> actors), getMoveLocations(), selectMooveLocation(ArrayList<Location> locs), makeMove(Location loc)
+2. getActors(), processActors(ArrayList<Actor> actors), getMoveLocations(), selectMooveLocation(ArrayList<Location> locs), makeMove(Location loc)
+3. No, because the only thing it does is tell what is arround the bug. There is nothing else you can make it do.
+4. A critter could get the location, color, and type of actor.
+5. getMoveLocations-gets a list of empty locations next to the critter, selectMoveLocation-selects a location for the next move, makeMove-moves the critter to the location provided before
+6. Because it imports Critter
+	Set 8
+1. ChameleonCritter over rides all the methods it has in its class
+2. You change makeMove in the ChameleonCritter, but you still want it to move so you use super to use the makeMove before it was changed.
+3. You would add, Flower flower = new Flower(getColor()), into makeMove after super.makeMove(loc)
+4. Chameleon uses the exact same getActors. It doesn't need to change it so it doesn't over ride it.
+5. Actor
+6. gitGrid from the actor class.
+	Set 9
+1. Because the crab doesn't need to change the class.
+2. First, it uses get Actors to see if there are actors arround it. Then processActors, to see if it can eat it. It only will eat flowers and bugs in front, or diagonal front. 
+3. It uses it to see which direction it is looking at to see if it can eat anything.
+4. All the cordinants arround it.
+5. A CrabCritter can only move sideways, it can eat things, and it can not move diagonal. Simularities, it moves, and turns.
+6. If there is a rock or a wall it the spot it wants to move.
+7. Because they are critters, and crabs do not eat critters.

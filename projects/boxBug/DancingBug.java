@@ -34,7 +34,6 @@ public class DancingBug extends Bug
      */
     public DancingBug(int[] arrray)
     {
-        int dance = 0;
         array = arrray;
     }
 
