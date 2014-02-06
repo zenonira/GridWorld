@@ -70,8 +70,7 @@ public class Critter extends Actor
      */
     public void processActors(ArrayList<Actor> actors)
     {
-        for (Actor a : actors)
-        {
+        for (Actor a : actors) {
             if (!(a instanceof Rock) && !(a instanceof Critter))
                 a.removeSelfFromGrid();
         }

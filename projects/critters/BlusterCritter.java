@@ -7,11 +7,18 @@ import java.util.ArrayList;
 import java.awt.Color;
 
 public class BlusterCritter extends Critter {
+	private int c;
+	public BlusterCritter(int c) {
+		super();
+		this.c=c;
+	}
 		
 	public void processActors(ArrayList<Actor> actors) {
-		int c = 1;
-		findActors2();
-		if (c > findActors2()) {
+		for (Actor a : actors) {
+		    if (!(a instanceof Rock) && !(a instanceof Critter))
+		        a.removeSelfFromGrid();
+		}
+		if (this.c > actors.size()-1) {
 			lighten();
 		} else {
 			darken();
@@ -19,43 +26,69 @@ public class BlusterCritter extends Critter {
 
 	}
 
-	public int findActors2() {
-		int number = 0;
+	public ArrayList<Actor> getActors() {
+		ArrayList<Actor> actor = new ArrayList<Actor>(0);
 		Location loc = getLocation();
 		int row = loc.getRow() - 2;
 		int col = loc.getCol() - 2;
-		Location locs = new Location(row, col);
-		if (getGrid().isValid(locs)) {
-			for (int i=0; i<=5; i++) {
-				for (int j=0; j<=5; j++) {
+		//System.out.println(row + " " + col);
+		for (int i=1; i<=5; i++) {
+			//System.out.println("DJ");
+			col = loc.getCol() - 2;
+			for (int j=1; j<=5; j++) {
+				Location locs = new Location(row, col);
+				//System.out.println("YO");
+				if (getGrid().isValid(locs)) {
+					//System.out.println("Hello");
+					//System.out.println(locs);
 					if (getGrid().get(locs) instanceof Critter) {
-					    number++;
+					    actor.add(getGrid().get(locs));
+					    //System.out.println("HI");
 					}	
-					col++;
 				}
-				row++;
+				col++;
 			}
+			row++;
 		}
-		return number;
+		//System.out.println(actor.size());
+		return actor;
 	}
 
 	public void darken() {
 		Color c = getColor();
 		double dark = 0.5;
-		int red = (int) (c.getRed() * (1 - dark));
-		int green = (int) (c.getGreen() * (1 - dark));
-		int blue = (int) (c.getBlue() * (1 - dark));
-
+		int red = c.getRed();
+		int green = c.getGreen();
+		int blue = c.getBlue();
+		if (red > 5) {
+			red -= 5;
+		}
+		if (green > 5) {
+			green -= 5;
+		}
+		if (blue > 5) {
+			blue -= 5;
+		}
+		
 		setColor(new Color(red, green, blue));
 	}
 
 	public void lighten() {
 		Color c = getColor();
 		double light = 0.5;
-		int red = (int) (c.getRed() * (1 + light));
-		int green = (int) (c.getGreen() * (1 + light));
-		int blue = (int) (c.getBlue() * (1 + light));
-
+		int red = c.getRed();
+		int green = c.getGreen();
+		int blue = c.getBlue();
+		if (red < 250) {
+			red += 5;
+		}
+		if (green < 250) {
+			green += 5;
+		}		
+		if (blue < 250) {
+			blue += 5;
+		}
+		
 		setColor(new Color(red, green, blue));
 	}
 
